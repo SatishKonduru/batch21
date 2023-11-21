@@ -7,12 +7,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderComponent } from './components/header/header.component';
 import { AngularMaterialModule } from './modules/angular-material/angular-material.module';
 import { SidnavComponent } from './components/sidnav/sidnav.component';
+import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    SidnavComponent
+    SidnavComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
