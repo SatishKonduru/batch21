@@ -1,1 +1,18 @@
-<h3>Signup Component</h3>
+<mat-toolbar color="my-primary">
+    <mat-toolbar-row><span>Register</span></mat-toolbar-row>
+</mat-toolbar>
+<mat-dialog-content>
+    <form [formGroup]="registerForm">
+        <div class="form-group">
+            <mat-form-field appearance="outline">
+                <mat-label>Username: </mat-label>
+                <input matInput type="text" formControlName="username" required>
+                <mat-error *ngIf="registerForm.controls.username.touched && registerForm.controls.username.invalid">
+                    <span *ngIf="registerForm.controls.username.errors?.required">This field is Mandatory</span>
+                    <span *ngIf="registerForm.controls.username.errors?.pattern">Invalid Username</span>
+                </mat-error>
+            </mat-form-field>
+            
+        </div>
+    </form>
+</mat-dialog-content>

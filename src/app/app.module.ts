@@ -17,6 +17,7 @@ import {
   SPINNER,
   PB_DIRECTION
  } from 'ngx-ui-loader';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 const ngxUiLoaderConfig : NgxUiLoaderConfig = {
@@ -46,7 +47,9 @@ const ngxUiLoaderConfig : NgxUiLoaderConfig = {
     AppRoutingModule,
     BrowserAnimationsModule,
     AngularMaterialModule,
-    NgxUiLoaderModule.forRoot(ngxUiLoaderConfig)
+    NgxUiLoaderModule.forRoot(ngxUiLoaderConfig),
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
