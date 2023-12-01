@@ -20,6 +20,8 @@ import {
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UserService } from './services/user.service';
 import { HttpClientModule } from '@angular/common/http';
+import { SnackbarService } from './services/snackbar.service';
+import { LoginComponent } from './components/login/login.component';
 
 
 const ngxUiLoaderConfig : NgxUiLoaderConfig = {
@@ -42,7 +44,8 @@ const ngxUiLoaderConfig : NgxUiLoaderConfig = {
     SidnavComponent,
     HomeComponent,
     PageNotFoundComponent,
-    SignupComponent
+    SignupComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -54,7 +57,10 @@ const ngxUiLoaderConfig : NgxUiLoaderConfig = {
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [UserService],
+  providers: [
+    UserService,
+    SnackbarService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,0 +1,19 @@
+.mat-my-primary{
+    background: var(--orange);
+    color: #fff;
+    /* background-image: linear-gradient(var(--orange), #fff); */
+}
+mat-label{
+    font-size: 16px;
+    color: var(--orange);
+}
+mat-form-field{
+    width: 100%;
+    padding: 5px;
+}
+.forgot{
+    text-align: left;
+    font-size: 14px;
+    padding-left: 1rem;
+    color: var(--black)
+}
