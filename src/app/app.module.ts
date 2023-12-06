@@ -22,6 +22,7 @@ import { UserService } from './services/user.service';
 import { HttpClientModule } from '@angular/common/http';
 import { SnackbarService } from './services/snackbar.service';
 import { LoginComponent } from './components/login/login.component';
+import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 
 
 const ngxUiLoaderConfig : NgxUiLoaderConfig = {
@@ -45,7 +46,8 @@ const ngxUiLoaderConfig : NgxUiLoaderConfig = {
     HomeComponent,
     PageNotFoundComponent,
     SignupComponent,
-    LoginComponent
+    LoginComponent,
+    ForgotPasswordComponent
   ],
   imports: [
     BrowserModule,
