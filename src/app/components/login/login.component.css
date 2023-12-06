@@ -1,6 +1,6 @@
 .mat-my-primary{
-    background: var(--orange);
-    color: #fff;
+    background: var(--orange) !important;
+    color: #fff !important;
     /* background-image: linear-gradient(var(--orange), #fff); */
 }
 mat-label{

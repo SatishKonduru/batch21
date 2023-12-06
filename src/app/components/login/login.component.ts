@@ -44,7 +44,31 @@ forgotPassword(){
   this._userDialog.open(ForgotPasswordComponent, dialogConfig)
 }
 
-login(){
+userLogin(){
+  this._ngxService.start()
+  var formData = this.loginForm.value
+  var data = {
+    email : formData.email,
+    password: formData.password
+  }
+  this._userService.login(data)
+  .subscribe((res: any) =>{
+    this._ngxService.stop()
+    this._dialogRef.close()
+    localStorage.setItem('token', res.token)
+    this._router.navigate(['/rsk/dashboard'])
+  }, (err: any) =>{
+      this._ngxService.stop()
+      this._dialogRef.close()
+      if(err.error?.message){
+        this.responseMsg = err.error?.message
+      }
+      else{
+        this.responseMsg = globalProperties.genericError
+      }
+      this._snackbar.openSnackbar(this.responseMsg, globalProperties.error)
+  })
+
 
 }
 
