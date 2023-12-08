@@ -2,7 +2,7 @@ export class globalProperties{
     //Messages
 public static genericError : string='Something went Wrong! Please try again later.'
 
-
+public static unauthorized: string = 'You are not authorized person to access this page'
 
 
 //Regular Expression (Regex)

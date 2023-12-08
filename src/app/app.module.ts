@@ -23,6 +23,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { SnackbarService } from './services/snackbar.service';
 import { LoginComponent } from './components/login/login.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
+import { DashboardService } from './services/dashboard.service';
+import { AuthService } from './services/auth.service';
+import { RouteGaurdService } from './services/route-gaurd.service';
 
 
 const ngxUiLoaderConfig : NgxUiLoaderConfig = {
@@ -61,7 +64,10 @@ const ngxUiLoaderConfig : NgxUiLoaderConfig = {
   ],
   providers: [
     UserService,
-    SnackbarService
+    SnackbarService,
+    DashboardService,
+    AuthService,
+    RouteGaurdService
   ],
   bootstrap: [AppComponent]
 })

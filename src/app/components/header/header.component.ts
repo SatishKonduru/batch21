@@ -1,7 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { SignupComponent } from '../signup/signup.component';
 import { LoginComponent } from '../login/login.component';
+import { UserService } from 'src/app/services/user.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -9,9 +11,9 @@ import { LoginComponent } from '../login/login.component';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit{
 
-constructor(private _userDialog: MatDialog){}
+constructor(private _userDialog: MatDialog, private _userService: UserService, private _router: Router){}
   userSignup(){
   const dialogConfig = new MatDialogConfig()
   dialogConfig.width = '70rem'
@@ -29,7 +31,16 @@ constructor(private _userDialog: MatDialog){}
   }
 
 
-
+  ngOnInit(): void {
+    if(localStorage.getItem('token') != null){
+        this._userService.checkToken()
+        .subscribe((res: any) => {
+          this._router.navigate(['/rsk/dashboard'])
+        },(err: any) => {
+          this._router.navigate(['/home'])
+        })
+    }
+  }
 
 
 }

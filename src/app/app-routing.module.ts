@@ -19,6 +19,21 @@ const routes: Routes = [
     component: SignupComponent
   },
   {
+    path: 'rsk',
+    children: [
+      {
+        path: '',
+        redirectTo: '/rsk/dashboard',
+        pathMatch: 'full'
+      },
+      { 
+        path: 'dashboard', 
+        loadChildren: () => import('./modules/dashboard/dashboard.module').then(m => m.DashboardModule) 
+       },
+    ]
+  },
+  
+  {
     path:'**',
     component: PageNotFoundComponent
   }
