@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { SignupComponent } from './components/signup/signup.component';
+import { RouteGaurdService } from './services/route-gaurd.service';
 
 const routes: Routes = [
   {
@@ -28,7 +29,11 @@ const routes: Routes = [
       },
       { 
         path: 'dashboard', 
-        loadChildren: () => import('./modules/dashboard/dashboard.module').then(m => m.DashboardModule) 
+        loadChildren: () => import('./modules/dashboard/dashboard.module').then(m => m.DashboardModule) ,
+        canActivate: [RouteGaurdService],
+        data: {
+          expectedRole: ['admin','user']
+        }
        },
     ]
   },
