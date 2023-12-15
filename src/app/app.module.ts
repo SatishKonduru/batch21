@@ -19,13 +19,14 @@ import {
  } from 'ngx-ui-loader';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UserService } from './services/user.service';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { SnackbarService } from './services/snackbar.service';
 import { LoginComponent } from './components/login/login.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import { DashboardService } from './services/dashboard.service';
 import { AuthService } from './services/auth.service';
 import { RouteGaurdService } from './services/route-gaurd.service';
+import { TokenInterceptor } from './services/token.interceptor';
 
 
 const ngxUiLoaderConfig : NgxUiLoaderConfig = {
@@ -67,7 +68,12 @@ const ngxUiLoaderConfig : NgxUiLoaderConfig = {
     SnackbarService,
     DashboardService,
     AuthService,
-    RouteGaurdService
+    RouteGaurdService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true
+    }
   ],
   bootstrap: [AppComponent]
 })
